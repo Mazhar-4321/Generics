@@ -5,23 +5,14 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Find Maximum Problem Using Generics");
         Main main = new Main();
-        System.out.println(  main.maxOf3Integers(7,9,11));
-        System.out.println(main.maxOf3Floats(2.1f,11.1f,20.7f));
-        System.out.println(main.maxOf3Strings("Zebra","Zecll","ZyCat"));
+        System.out.println(main.max(7, 9, 11));
+        System.out.println(main.max(2.1f, 11.1f, 20.7f));
+        System.out.println(main.max("Zebra", "Zecll", "ZyCat"));
     }
-    public <T extends Integer> Integer maxOf3Integers(T num1,T num2, T num3){
-         Integer ans = num1.compareTo(num2)>=1?num1:num2;
-         ans=ans.compareTo(num3)>=1?ans:num3;
-         return ans;
-    }
-    public <T extends Float> Float maxOf3Floats(T num1,T num2, T num3){
-        Float ans = num1.compareTo(num2)>=1?num1:num2;
-        ans=ans.compareTo(num3)>=1?ans:num3;
-        return ans;
-    }
-    public <T extends String> String maxOf3Strings(T num1,T num2, T num3){
-        String ans = num1.compareTo(num2)>=1?num1:num2;
-        ans=ans.compareTo(num3)>=1?ans:num3;
+
+    public <T extends Comparable<T>> T max(T num1, T num2, T num3) {
+        T ans = num1.compareTo(num2) >= 1 ? num1 : num2;
+        ans = ans.compareTo(num3) >= 1 ? ans : num3;
         return ans;
     }
 }
